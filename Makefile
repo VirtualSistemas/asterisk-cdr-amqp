@@ -9,12 +9,12 @@
 
 ASTLIBDIR:=$(shell awk '/moddir/{print $$3}' /etc/asterisk/asterisk.conf 2> /dev/null)
 ifeq ($(strip $(ASTLIBDIR)),)
-	MODULES_DIR:=$(INSTALL_PREFIX)/usr/lib/asterisk/modules
+	MODULES_DIR:=$(INSTALL_PREFIX)/usr/lib/asterisk64/modules
 else
 	MODULES_DIR:=$(INSTALL_PREFIX)$(ASTLIBDIR)
 endif
 ifeq ($(strip $(DOCDIR)),)
-	DOCUMENTATION_DIR:=$(INSTALL_PREFIX)/usr/share/asterisk/documentation/thirdparty
+	DOCUMENTATION_DIR:=$(INSTALL_PREFIX)/var/lib/asterisk/documentation/thirdparty
 else
 	DOCUMENTATION_DIR:=$(INSTALL_PREFIX)$(DOCDIR)
 endif
